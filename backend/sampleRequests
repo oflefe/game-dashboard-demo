@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Register a User
+curl -X POST http://localhost:5000/api/auth/register \
+     -H "Content-Type: application/json" \
+     -d '{"username": "testuser", "password": "testpassword"}'
+
+echo "\n"
+
+# Login a User
+curl -X POST http://localhost:5000/api/auth/login \
+     -H "Content-Type: application/json" \
+     -d '{"username": "efe", "password": "testpassword"}'
+
+echo "\n"
+
+# Get Metrics (Replace <TOKEN> with actual token from login response)
+curl -X GET http://localhost:5000/api/metrics \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJlZmUiLCJpYXQiOjE3MzQwMjY3NTEsImV4cCI6MTczNDAzMDM1MX0.rQA6Zl7K1-Apsxl7UCAbO8Bee_VyAnACRqMHZnMrg9w"
+
+echo "\n"
+
+# Add a Metric (Replace <TOKEN> with actual token from login response)
+curl -X POST http://localhost:5000/api/metrics \
+     -H "Authorization: Bearer <TOKEN>" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "game_name": "Puzzle World",
+       "downloads": 2000,
+       "dau": 300,
+       "mau": 1000,
+       "arpu": 1.5,
+       "arppu": 10.0,
+       "retention_day1": 40.0,
+       "retention_day7": 20.0,
+       "retention_day30": 5.0,
+       "revenue": 5000,
+       "date": "2024-01-02"
+     }'
+
+echo "\n"

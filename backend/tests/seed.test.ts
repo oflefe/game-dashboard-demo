@@ -39,7 +39,6 @@ describe("Seed Script", () => {
       { username: "testuser", password: "hashed_testpassword" },
     ];
 
-    expect(mockCreate).toHaveBeenCalled();
     for (const user of expectedUsers) {
       expect(mockCreate).toHaveBeenCalledWith(user);
     }

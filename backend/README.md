@@ -19,3 +19,8 @@ npm run seed
 ```bash
 npm run dev
 ```
+
+# Run tests 
+
+```bash 
+npm run test

@@ -3,7 +3,7 @@ import { User } from "../entity/User";
 import { Metric } from "../entity/Metric";
 import bcrypt from "bcrypt";
 
-const seed = async (): Promise<void> => {
+export const seed = async (): Promise<void> => {
   try {
     console.log("Initializing database connection...");
     await AppDataSource.initialize();
